@@ -8,8 +8,8 @@ public class RMI extends UnicastRemoteObject implements MensajeInterface {
     }
 
     @Override
-    public String saludar() throws RemoteException {
-        return "Hola desde el servidor remoto";
+    public String saludar(String nombre) throws RemoteException {
+        return "Hola " + nombre + " desde el servidor remoto";
     }
 
     @Override
