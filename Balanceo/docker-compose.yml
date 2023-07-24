@@ -1,0 +1,50 @@
+version: '3'
+
+services:
+  nginx:
+    build: 
+      context: ./nginx
+      dockerfile: Dockerfile
+    ports:
+      - 8080:80
+    depends_on:
+      - servidor1
+      - servidor2
+      - servidor3
+      - servidor4
+      - servidor5
+
+  servidor1:
+    build: 
+      context: ./servidor1
+      dockerfile: Dockerfile
+    ports:
+      - 5001:5000
+
+  servidor2:
+    build: 
+      context: ./servidor2
+      dockerfile: Dockerfile
+    ports:
+      - 5002:5000
+
+  servidor3:
+    build: 
+      context: ./servidor3
+      dockerfile: Dockerfile
+    ports:
+      - 5003:5000
+
+  servidor4:
+    build: 
+      context: ./servidor4
+      dockerfile: Dockerfile
+    ports:
+      - 5004:5000
+
+  servidor5:
+    build: 
+      context: ./servidor5
+      dockerfile: Dockerfile
+    ports:
+      - 5005:5000

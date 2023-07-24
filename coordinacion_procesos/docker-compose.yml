@@ -1,0 +1,16 @@
+version: "3"
+services:
+  nodo_a:
+    build: .
+    container_name: nodo_a
+    command: python main.py
+
+  nodo_b:
+    build: .
+    container_name: nodo_b
+    command: python main.py
+
+  nodo_c:
+    build: .
+    container_name: nodo_c
+    command: python main.py

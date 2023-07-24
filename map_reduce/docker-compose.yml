@@ -1,0 +1,26 @@
+version: "3"
+services:
+  nodo1:
+    build: .
+    container_name: nodo1
+    volumes:
+      - ./entrada:/app/entrada
+      - ./salida:/app/salida
+    command: sh -c "python mapReduce.py /app/entrada/archivo1.txt > app/salida/salida1.txt"
+
+  nodo2:
+    build: .
+    container_name: nodo2
+    volumes:
+      - ./entrada:/app/entrada
+      - ./salida:/app/salida
+    command: sh -c "python mapReduce.py /app/entrada/archivo2.txt > app/salida/salida2.txt"
+
+  nodo3:
+    build: .
+    container_name: nodo3
+    volumes:
+      - ./entrada:/app/entrada
+      - ./salida:/app/salida
+    command: sh -c "python mapReduce.py /app/entrada/archivo3.txt > app/salida/salida3.txt"
+      
