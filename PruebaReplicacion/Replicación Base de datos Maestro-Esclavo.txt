@@ -1,0 +1,33 @@
+#IMPORTANTE: DESHABILITAR EL FIREWALL
+
+BASE DE DATOS PRIMARIA (MAESTRO)
+
+1. Crear una base de datos
+
+2. Cambiar en archivo my.ini (reiniciar)
+log_bin = mysql-bin
+binlog_do_db = nombre_base_de_datos
+server-id       = 1
+
+3. En la base de datos a replicar crear usuario por línea de comandos SQL
+GRANT REPLICATION SLAVE ON *.* TO 'vane'@'192.168.100.2' IDENTIFIED BY '1234';
+
+4. SHOW MASTER STATUS;
+
+
+
+BASE DE DATOS SECUNDARIA (ESCLAVO)
+
+1. Importar Base de Datos
+2. Cambiar en archivo my.ini (reiniciar)
+server-id       = 2
+binlog_do_db=nombre_base_de_datos
+
+3. En la base de datos a replicar crear usuario por línea de comandos SQL
+CHANGE MASTER TO MASTER_HOST='192.168.100.51', MASTER_USER='vane', MASTER_PASSWORD='1234';
+CHANGE MASTER TO MASTER_LOG_FILE='mysql-bin.000002', MASTER_LOG_POS=773;
+
+4. START SLAVE;
+5. SHOW SLAVE STATUS;
+
+

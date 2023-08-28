@@ -6,7 +6,7 @@ services:
     volumes:
       - ./entrada:/app/entrada
       - ./salida:/app/salida
-    command: sh -c "python mapReduce.py /app/entrada/archivo1.txt > app/salida/salida1.txt"
+    command: sh -c "python mapReduce.py /app/entrada/archivo1.txt > /app/salida/salida1.txt"
 
   nodo2:
     build: .
@@ -14,7 +14,7 @@ services:
     volumes:
       - ./entrada:/app/entrada
       - ./salida:/app/salida
-    command: sh -c "python mapReduce.py /app/entrada/archivo2.txt > app/salida/salida2.txt"
+    command: sh -c "python mapReduce.py /app/entrada/archivo2.txt > /app/salida/salida2.txt"
 
   nodo3:
     build: .
@@ -22,5 +22,5 @@ services:
     volumes:
       - ./entrada:/app/entrada
       - ./salida:/app/salida
-    command: sh -c "python mapReduce.py /app/entrada/archivo3.txt > app/salida/salida3.txt"
+    command: sh -c "python mapReduce.py /app/entrada/archivo3.txt > /app/salida/salida3.txt"
       

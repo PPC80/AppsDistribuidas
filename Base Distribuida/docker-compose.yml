@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  mysql_usa:
+    image: mysql:latest
+    container_name: mysql_usa
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: users_usa
+    ports:
+      - "3306:3306"
+
+  mysql_canada:
+    image: mysql:latest
+    container_name: mysql_canada
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: users_canada
+    ports:
+      - "3307:3306"
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: phpmyadmin
+    environment:
+      PMA_HOSTS: mysql_usa,mysql_canada
+      PMA_ARBITRARY:
+    ports:
+      - "8080:80"
+    depends_on:
+      - mysql_usa
+      - mysql_canada

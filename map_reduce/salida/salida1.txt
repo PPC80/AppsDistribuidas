@@ -1,0 +1,3 @@
+"Hola"	3
+"estas"	1
+"como"	1

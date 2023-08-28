@@ -1,0 +1,3 @@
+CREATE USER 'masteruser'@'%' IDENTIFIED WITH mysql_native_password BY '123456';
+GRANT REPLICATION SLAVE, REPLICATION CLIENT ON *.* TO 'masteruser'@'%';
+FLUSH PRIVILEGES;
